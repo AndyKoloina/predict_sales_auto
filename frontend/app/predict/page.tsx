@@ -31,7 +31,7 @@ export default function PredictPage() {
 
   // On charge les données pour l'autocomplétion au démarrage
   useEffect(() => {
-    fetch('http://localhost:8000/car-data')
+    fetch('http://localhost:8001/car-data')
       .then(res => res.json())
       .then(data => setCarData(data))
       .catch(err => console.error("Erreur de chargement des données d'autocomplétion:", err));
@@ -62,7 +62,7 @@ export default function PredictPage() {
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/predict', {
+      const response = await fetch('http://localhost:8001/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
