@@ -1,0 +1,16 @@
+services:
+  frontend:
+    # Cette variable d'environnement force la détection des changements
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    # On remplace la commande pour le mode développement
+    command: npm run dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+  api:
+    # On ajoute --reload pour le hot-reloading
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./api:/app

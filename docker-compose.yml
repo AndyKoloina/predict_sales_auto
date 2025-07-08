@@ -1,0 +1,23 @@
+services:
+  # Service 1: Le backend API
+  api:
+    build: ./api
+    ports:
+      - "8001:8000"
+    networks:
+      - app-network
+
+  # Service 2: Le frontend Next.js
+  frontend:
+    build: ./frontend
+    ports:
+      - "3001:3000"
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+# On définit le réseau partagé, mais sans la clé 'dns'
+networks:
+  app-network:
+    driver: bridge

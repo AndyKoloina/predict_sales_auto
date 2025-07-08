@@ -1,0 +1,36 @@
+# Fichiers de dépendances (le plus important)
+# On ignore tous les dossiers node_modules, où qu'ils soient dans le projet.
+**/node_modules
+
+# Environnements virtuels Python
+.venv/
+venv/
+env/
+
+# Fichiers de cache Python
+__pycache__/
+*.pyc
+
+# Artefacts de build de Next.js
+# On ignore tous les dossiers .next
+**/.next
+
+# Fichiers d'environnement (ne jamais envoyer de clés d'API ou de mots de passe)
+.env
+.env.local
+.env.*.local
+!/.env.example
+
+# Fichiers de log
+npm-debug.log*
+yarn-error.log
+yarn-debug.log
+*.log
+
+# Fichiers générés par les systèmes d'exploitation
+.DS_Store
+Thumbs.db
+
+# Fichiers de configuration des éditeurs de code
+.vscode/
+.idea/

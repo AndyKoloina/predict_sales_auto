@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  /* On applique l'image de fond */
+  
+  /* On ajoute une couleur de secours si l'image ne charge pas */
+  background-color: #020617; /* C'est un bleu très sombre (slate-950) */
+}
+
+
+/* On définit une animation nommée "float" */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px); /* Le robot monte de 20 pixels */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* On applique cette animation à la classe 'animate-float' */
+.animate-float {
+  animation: float 6s ease-in-out infinite; /* L'animation dure 6s, en boucle */
+}
+/* ... (gardez vos styles existants) ... */
+
+/* --- ✅ NOUVEAU CODE POUR LES ANIMATIONS --- */
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+}
