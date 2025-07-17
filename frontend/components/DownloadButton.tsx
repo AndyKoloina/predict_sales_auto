@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { jsPDF } from 'jspdf';
-
 import html2canvas from 'html2canvas';
 
 // On définit le type des props que le composant attend

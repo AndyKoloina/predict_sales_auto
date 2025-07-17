@@ -1,6 +1,11 @@
 "use client";
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import TestimonialsSection from '../components/TestimonialsSection';
+import FAQSection from '../components/FAQSection';
+import StatisticsSection from '../components/StatisticsSection';
+import FeaturesSection from '../components/FeaturesSection';
+import CTASection from '../components/CTASection';
 
 // --- Vos icônes SVG (inchangées) ---
 const BrainIcon = () => ( <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}> <path strokeLinecap="round" strokeLinejoin="round" d="M17.94 17.94A10.07 10.07 0 0112 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8a10.07 10.07 0 01-2.06 6.06L12 12V2" /> </svg> );
@@ -34,7 +39,7 @@ const articles = [
 
 
 export default function HomePage() {
-  const bannerRef = useRef(null);
+  const bannerRef = useRef<HTMLDivElement>(null);
   const [borderLength, setBorderLength] = useState(0);
   const titleLine1 = "Le Futur de la Prédiction";
   const titleLine2 = "Automobile";
@@ -44,7 +49,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (bannerRef.current) {
-      const rect = bannerRef.current.querySelector('.animated-border-rect');
+      const rect = bannerRef.current.querySelector('.animated-border-rect') as SVGPathElement;
       if (rect) {
         const length = rect.getTotalLength();
         setBorderLength(length);
@@ -91,6 +96,15 @@ export default function HomePage() {
         <div className="bg-slate-900/50 p-6 rounded-lg border border-slate-800 text-center"> <div className="flex justify-center mb-4"><CarIcon /></div> <h3 className="text-xl font-bold text-white mb-2">Spécifique au Véhicule</h3> <p className="text-slate-400">Obtenez des estimations fines basées sur la marque et le modèle.</p> </div>
       </div>
 
+      {/* Section Statistiques */}
+      <StatisticsSection />
+
+      {/* Section Fonctionnalités Avancées */}
+      <FeaturesSection />
+
+      {/* Section Témoignages */}
+      <TestimonialsSection />
+
       {/* --- DÉBUT DE LA NOUVELLE SECTION ARTICLES --- */}
       <section className="w-full max-w-6xl mb-20">
         <h2 className="text-3xl font-bold text-white text-center mb-4">Plongez dans nos analyses</h2>
@@ -119,6 +133,11 @@ export default function HomePage() {
       </section>
       {/* --- FIN DE LA NOUVELLE SECTION ARTICLES --- */}
 
+      {/* Section FAQ */}
+      <FAQSection />
+
+      {/* Section Call to Action */}
+      <CTASection />
 
       {/* Pied de page (inchangé) */}
       <footer className="w-full text-center text-slate-500 mt-10 pb-10">

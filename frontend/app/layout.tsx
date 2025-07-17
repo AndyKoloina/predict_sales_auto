@@ -1,30 +1,43 @@
-'use client'; // On ajoute cette ligne pour pouvoir utiliser le state de React
 
-import { useState } from 'react';
+'use client'; // Permet d'utiliser le state de React
+
+import React, { useState } from 'react';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import DocumentationSlideout from '../components/DocumentationSlideout';
 import CircuitBackground from '../components/CircuitBackground';
+
 const inter = Inter({ subsets: ['latin'] });
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // State pour le panneau de documentation
   const [isDocsOpen, setIsDocsOpen] = useState(false);
 
-  // Fonctions pour contrôler le panneau
+  // Ouvre le panneau de documentation
   const openDocs = () => setIsDocsOpen(true);
+  // Ferme le panneau de documentation
   const closeDocs = () => setIsDocsOpen(false);
 
   return (
     <html lang="fr">
-      <body className={`${inter.className} bg-slate-950 text-slate-200`} suppressHydrationWarning={true}>
-        {/* On passe la fonction d'ouverture au Navbar */}
+      <body
+        className={`${inter.className} bg-slate-950 text-slate-200`}
+        suppressHydrationWarning={true}
+      >
+        {/* Fond visuel */}
         <CircuitBackground />
-        <Navbar onDocsClick={openDocs} />
-        <main className="container mx-auto px-6 py-12">{children}</main>
 
-        {/* On rend le panneau de documentation et on lui passe son état et sa fonction de fermeture */}
+        {/* Barre de navigation avec bouton d'ouverture de la documentation */}
+        <Navbar onDocsClick={openDocs} />
+
+        {/* Contenu principal */}
+        <main className="container mx-auto px-6 py-12">
+          {children}
+        </main>
+
+        {/* Panneau latéral de documentation */}
         <DocumentationSlideout isOpen={isDocsOpen} onClose={closeDocs} />
       </body>
     </html>
