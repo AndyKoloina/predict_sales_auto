@@ -52,7 +52,7 @@ export default function PredictionResultCard({ price, onReset }: ResultCardProps
       {/* Section robot avec message */}
       <div className="flex flex-col items-center -mt-24 mb-4">
         <Image 
-          src="/assets/img/robotwaving.png" 
+          src="/assets/img/robo_paille.png" 
           alt="Robot assistant" 
           width={150} 
           height={150} 
