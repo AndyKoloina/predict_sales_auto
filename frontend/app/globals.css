@@ -37,7 +37,32 @@ body {
   50% { transform: translateY(-20px); }
   100% { transform: translateY(0px); }
 }
+/* 👇 AJOUTEZ CES KEYFRAMES 👇 */
+@layer base {
+  @keyframes char-appear {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.8);
+      filter: blur(3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
 
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -51,4 +76,22 @@ body {
 
 .animate-fade-in-up {
     animation: fade-in-up 0.5s ease-out forwards;
+}
+@keyframes draw-border {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animated-border-rect {
+  stroke-dasharray: var(--border-length);
+  stroke-dashoffset: var(--border-length);
+  animation: draw-border 2.5s ease-out 0.5s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+ .animated-border-rect {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
 }

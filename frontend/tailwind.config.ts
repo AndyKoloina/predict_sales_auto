@@ -15,6 +15,10 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(-20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        'char-appear': {
+          'from': { opacity: '0', transform: 'translateY(20px) scale(0.8)', filter: 'blur(3px)' },
+          'to': { opacity: '1', transform: 'translateY(0) scale(1)', filter: 'blur(0)' },
+        },
         'fade-in-up': {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
@@ -30,6 +34,7 @@ const config: Config = {
         'fade-in-down': 'fade-in-down 0.5s ease-out forwards',
         'fade-in-up': 'fade-in-up 0.5s ease-out 0.2s forwards',
         'bounce-in': 'bounce-in 0.6s ease-out 0.4s forwards',
+        'char-appear': 'char-appear 0.5s ease-out forwards',
       },
     },
   },
