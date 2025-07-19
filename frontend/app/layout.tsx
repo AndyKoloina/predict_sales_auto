@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import DocumentationSlideout from "../components/DocumentationSlideout";
-import CarTrailBackground from "../components/CarTrailBackground";
 import NeuralNetworkBackground from "../components/NeuralNetworkBackground";
 import CircuitBackground from "../components/CircuitBackground";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -45,8 +44,8 @@ export default function RootLayout({
           <LoadingScreen />
         ) : (
           <>
-            <CircuitBackground />
-            {/*<NeuralNetworkBackground />*/}
+            {/* <CircuitBackground /> */}
+            <NeuralNetworkBackground />
             {/*<CircuitBackground />*/}
             {/*<CarTrailBackground />*/}
             <Navbar onDocsClick={openDocs} />
