@@ -149,9 +149,10 @@ const CircuitBackground = () => {
       <img
         src="/assets/img/robo_bg.png"
         alt="AutoPredict Robot"
+        className="animate-float"
         style={{
           position: 'fixed',
-          bottom: '0px',
+          bottom: '-20px',
           right: '0px',
           width: '450px',       // Largeur de l'image
           maxWidth: '30%',      // Assure qu'elle n'est pas trop large sur petits écrans

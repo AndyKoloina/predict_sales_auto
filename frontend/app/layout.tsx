@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import DocumentationSlideout from "../components/DocumentationSlideout";
+import CarTrailBackground from "../components/CarTrailBackground";
+import NeuralNetworkBackground from "../components/NeuralNetworkBackground";
 import CircuitBackground from "../components/CircuitBackground";
 import LoadingScreen from "@/components/LoadingScreen";
 const inter = Inter({ subsets: ["latin"] });
@@ -44,6 +46,9 @@ export default function RootLayout({
         ) : (
           <>
             <CircuitBackground />
+            {/*<NeuralNetworkBackground />*/}
+            {/*<CircuitBackground />*/}
+            {/*<CarTrailBackground />*/}
             <Navbar onDocsClick={openDocs} />
             <main className="container mx-auto px-6 py-12">{children}</main>
             <DocumentationSlideout isOpen={isDocsOpen} onClose={closeDocs} />
